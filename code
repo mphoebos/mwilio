@@ -1,0 +1,23 @@
+# Download the twilio-ruby library from twilio.com/docs/libraries/ruby
+require 'twilio-ruby'
+
+account_sid = 'ACb9484cf8217589871c1e9bxxxxxxxxxx'
+auth_token = 'yyyyyyyyyyyyyyyyyyyyyyyyy'
+client = Twilio::REST::Client.new(account_sid, auth_token)
+
+from = '+15551234567' # Your Twilio number (fake number)
+to = '+353870628960' # Your mobile phone number
+
+client.messages.create(
+from: from,
+to: to,
+body: "Thank you for using Mwilio taxi services. If you're not happy with the experience reply back to this sms."
+)
+
+# First I would use the code above to send SMS to my customers using Twilio Ruby, focusing on their experience when using my taxi services.
+# Unhappy customers would reply to the fake number. At the same time using Twilio Studio, I've build a Trigger to the Incoming SMS reply.
+# This would forward to AutoPilot where the target task is 'Talk_to_Support'.
+# On 'Talk_to_Support´, the bot would start the conversation with the message:
+# "Thank you for your feedback. A customer support representative will be with you shortly."
+
+# I've build the Twilio Studio and AutoPilot on my Twilio account marcoadmateus@gmail.com.
